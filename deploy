@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# produciton ENV variable
+echo "Production deploy script"
+NODE_ENV=production
+
+TMPDIR=$(mktemp -d -t n1-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT)
+
+echo "Bundle location: $TMPDIR"
+
+cp package.json $TMPDIR
+
+pushd $TMPDIR
+zip -FSrq bundle.zip .
+popd
+
+# npm install --production
+
+echo "DEPLOYED!"

@@ -1,0 +1,13 @@
+version: '3'
+service:
+  web:
+    build: .
+    port:
+      - "8080:8080"
+    db:
+      image: "mysql"
+      environment: 
+        MYSQL_ROOT_PASSWORD: password
+
+volume:
+  db-data:
